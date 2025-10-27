@@ -4,8 +4,21 @@ bot_url = "https://build.menix-os.org/"
 
 www_port = 8010
 
-machines = [
+targets = [
     {
         "arch": "x86_64",
-    }
+        "image": True,
+    },
+    {
+        "arch": "riscv64",
+        "image": False,
+    },
+]
+
+workers = [
+    {
+        "name": "my-builder",
+        "pass": "12345678",  # TODO: Proper auth
+        "archs": ["x86_64", "riscv64"],
+    },
 ]
