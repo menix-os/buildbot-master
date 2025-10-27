@@ -1,0 +1,11 @@
+title = "Menix"
+title_url = "https://menix-os.org"
+bot_url = "https://build.menix-os.org/"
+
+www_port = 8010
+
+machines = [
+    {
+        "arch": "x86_64",
+    }
+]
