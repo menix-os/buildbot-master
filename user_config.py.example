@@ -7,6 +7,7 @@ repo_branch = "main"
 
 jinx_url = "https://codeberg.org/mintsuki/jinx.git"
 jinx_branch = "trunk"
+jinx_path = "jinx/jinx"
 
 www_port = 8010
 bot_port = 9989
