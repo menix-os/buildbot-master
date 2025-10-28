@@ -1,24 +1,37 @@
 title = "Menix"
 title_url = "https://menix-os.org"
-bot_url = "https://build.menix-os.org/"
+bot_url = "https://build.menix-os.org"
+
+repo_url = "https://github.com/menix-os/bootstrap.git"
+repo_branch = "main"
+
+jinx_url = "https://codeberg.org/mintsuki/jinx.git"
+jinx_branch = "trunk"
 
 www_port = 8010
+bot_port = 9989
+db_url = "sqlite:///state.sqlite"
 
-targets = [
+secrets_dir = "secrets"
+update_secs = 300
+
+archs = [
     {
-        "arch": "x86_64",
+        "name": "x86_64",
         "image": True,
+        "results": "results/x86_64",
     },
     {
-        "arch": "riscv64",
+        "name": "riscv64",
         "image": False,
+        "results": "results/riscv64",
     },
 ]
 
 workers = [
     {
         "name": "my-builder",
-        "pass": "12345678",  # TODO: Proper auth
-        "archs": ["x86_64", "riscv64"],
+        "archs": ["x86_64"],
+        "max_builds": 1,
     },
 ]
