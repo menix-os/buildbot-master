@@ -37,4 +37,4 @@ workers = [
     },
 ]
 
-users = {"admin": "changeme"}
+admins = {"admin": "changeme"}
