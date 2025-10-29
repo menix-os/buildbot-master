@@ -31,8 +31,10 @@ archs = [
 
 workers = [
     {
-        "name": "my-builder",
+        "name": "my-worker",
         "archs": ["x86_64"],
         "max_builds": 1,
     },
 ]
+
+users = ["admin"]
