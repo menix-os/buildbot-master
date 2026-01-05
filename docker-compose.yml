@@ -1,0 +1,20 @@
+services:
+  buildbot:
+    image: buildbot/buildbot-master:master
+    volumes:
+      - ./master.cfg:/buildbot/master.cfg:ro
+      - ./user_config.py:/buildbot/user_config.py:ro
+      - ./secrets:/buildbot/secrets:ro
+      - ./results:/buildbot/results:rw
+      - ./db:/buildbot/db:rw
+    ports:
+      - "8010:8010"
+      - "9989:9989"
+  results:
+    image: nginx
+    restart: unless-stopped
+    volumes:
+      - ./results:/usr/share/nginx/html:ro
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "4110:80"

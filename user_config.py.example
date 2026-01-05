@@ -1,40 +1,53 @@
+# Title seen on the website.
 title = "Menix"
+# URL to the project website.
 title_url = "https://menix-os.org"
-bot_url = "https://build.menix-os.org"
+# URL of the hosted builder.
+bot_url = "http://localhost:8010"
 
+# Git URL of the repository.
 repo_url = "https://github.com/menix-os/bootstrap.git"
 repo_branch = "main"
-
-jinx_url = "https://codeberg.org/mintsuki/jinx.git"
-jinx_branch = "trunk"
-jinx_path = "jinx/jinx"
-
-www_port = 8010
-bot_port = 9989
-db_url = "sqlite:///state.sqlite"
-
-secrets_dir = "secrets"
+# How often to check the repository for updates.
 update_secs = 300
 
+# Path to the jinx script in the repository.
+# Must be at least version 0.8!
+jinx_path = "jinx/jinx"
+
+# Port on which the web server is running.
+www_port = 8010
+# Port to which workers connect to.
+bot_port = 9989
+# URL of SQL database.
+db_url = "sqlite:///db/state.sqlite"
+
+# Directory where secrets are stored.
+secrets_dir = "secrets"
+
+# CPU architectures to build for.
 archs = [
     {
+        # Name of the architecture. Used for Jinx!
         "name": "x86_64",
-        "image": True,
+        # Directory to store packages in.
         "results": "results/x86_64",
-    },
-    {
-        "name": "riscv64",
-        "image": False,
-        "results": "results/riscv64",
     },
 ]
 
 workers = [
     {
+        # Name of the machine.
         "name": "my-worker",
+        # Architectures that this machine can build.
         "archs": ["x86_64"],
+        # Amount of simultaneous builds on this machine.
+        # It is recommended to keep this at 1.
         "max_builds": 1,
     },
 ]
 
-admins = {"admin": "changeme"}
+# Default admin credentials.
+admins = {
+    "admin": "changeme",
+}
