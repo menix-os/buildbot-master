@@ -19,8 +19,8 @@ Note that the secret files must be only accessible by the user, i.e. mode 600.
 Also make sure there are no trailing characters like newlines in the file.
 
 ```sh
-echo 'my_password' > ./${secrets_dir}/my_user
-chmod 600 ./${secrets_dir}/my_user
+echo 'my_password' > ./${secrets_dir}/my_worker
+chmod 600 ./${secrets_dir}/my_worker
 ```
 
 ## Running Buildbot
@@ -53,5 +53,6 @@ machine as the master.
 # Install buildbot-worker via pip (Create a venv if necessary).
 pip install buildbot-worker
 
-buildbot-worker create-worker ${BASE_DIR} ${URL} ${NAME} ${PASSWORD}
+buildbot-worker create-worker ${BASE_DIR} ${MASTER_ADDRESS} ${NAME} ${PASSWORD}
+buildbot-worker start ${BASE_DIR}
 ```
